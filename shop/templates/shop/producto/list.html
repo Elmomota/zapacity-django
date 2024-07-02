@@ -1,0 +1,29 @@
+{% extends "shop/base.html" %}
+{% load static %}
+{% block title %}
+    {% if category %}{{ category.name}}{% else %}ZapaCity{% endif %}
+{% endblock %}
+{% block content %}
+<div class="container mt-5">
+  <div id="main" class="product-list">
+      <h1 class="mb-4 text-white bg-dark text-center">{% if category %}{{ category.name }}{% else %}Zapatillas{% endif %}</h1>
+      <div class="row">
+          {% for product in products %}
+              <div class="col-md-4 mb-4">
+                  <div class="card h-100">
+                      <a href="{{ product.get_absolute_url }}">
+                          <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="card-img-top" alt="{{ product.name }}">
+                      </a>
+                      <div class="card-body">
+                          <h5 class="card-title">
+                              <a href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+                          </h5>
+                          <p class="card-text">${{ product.price }}</p>
+                      </div>
+                  </div>
+              </div>
+          {% endfor %}
+      </div>
+  </div>
+</div>
+{% endblock %}
