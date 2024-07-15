@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'shop/css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="shortcut icon" href="{% static 'img/Zapacity-negative-modified.png' %}" />
 </head>
 <body class="body-gri">
@@ -72,8 +72,27 @@
     
     <footer class="bg-dark text-center text-white py-3 mt-4">
         <p>&copy; 2024 ZapaCity. Todos los derechos reservados.</p>
-    </footer>
+        
+        <br><br>
 
+        <div class="container">
+            <h2 class="text-while">Nuestras Tiendas</h2>
+            <div id="map"></div>
+            <br>
+            <div class="container">
+                <div class="card">
+                    <h2 class="card-title text-dark">Tiendas en Santiago de Chile</h2>
+                    <p class="card-text text-dark">¡Visita nuestras tiendas en Santiago de Chile para descubrir nuestras últimas ofertas y productos emocionantes!</p>
+                </div>
+                <div class="card">
+                    <h2 class="card-title text-dark">Tienda en Valparaíso</h2>
+                    <p class="card-text text-dark">¡Ven a nuestra tienda en Valparaíso y disfruta de nuestras increíbles vistas y productos exclusivos!</p>
+                </div>
+            </div>
+        
+        </div>
+    </footer>
+    <script src="{% static 'js/map.js' %}"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

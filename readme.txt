@@ -50,4 +50,6 @@ python manage.py runserver
 
 - Asegúrate de configurar adecuadamente tu entorno virtual o entorno de desarrollo según tus necesidades específicas.
 -
-
+cd ./myvenv
+cd ./script
+cd .activate
