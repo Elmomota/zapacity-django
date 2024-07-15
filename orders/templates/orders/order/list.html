@@ -1,0 +1,19 @@
+<!-- orders/templates/orders/order/list.html -->
+{% extends "shop/base.html" %}
+{% block title %}Mis Pedidos{% endblock %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Mis Pedidos</h2>
+    {% if orders %}
+        <ul class="list-group">
+            {% for order in orders %}
+                <li class="list-group-item">
+                    <strong>Pedido #{{ order.id }}</strong> - {{ order.created }} - Total: ${{ order.get_total_cost }} - {% if order.paid %} Pagado {% else %} No Pagado {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No has realizado ningún pedido.</p>
+    {% endif %}
+</div>
+{% endblock %}

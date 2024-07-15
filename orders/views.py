@@ -2,9 +2,19 @@ from django.shortcuts import render
 from .models import OrderItem
 from .forms import OrderCreateForm
 from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect
+from .models import Order
 
 
 
+
+
+@login_required
+def order_list(request):
+    orders = Order.objects.filter(user=request.user)
+    return render(request, 'orders/order/list.html', {'orders': orders}) 
+@login_required
 def order_create(request):
     cart = Cart(request)
     

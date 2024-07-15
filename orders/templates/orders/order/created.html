@@ -1,11 +1,27 @@
 {% extends "shop/base.html" %}
 
 {% block title %}
-Gacias por tu compra
+Gracias por tu compra
 {% endblock %}
 
 {% block content %}
-<h1></h1>
-<p>Tu pedido ha sido completado exitosamente. Tu número de orden es:
-<strong>{{order.id}}</strong> </p>
+<div class="container mt-5">
+    <h1 class="text-center text-success">¡Gracias por tu compra!</h1>
+    <p class="text-center">Tu pedido ha sido completado exitosamente. Tu número de orden es: <strong>{{ order_id }}</strong></p>
+    <p class="text-center">Serás redirigido a la página principal en <span id="countdown">5</span> segundos...</p>
+</div>
+
+<script>
+    // Contador de 5 segundos para redirigir
+    let countdownElement = document.getElementById('countdown');
+    let countdown = 5;
+
+    setInterval(function() {
+        countdown--;
+        countdownElement.textContent = countdown;
+        if (countdown === 0) {
+            window.location.href = "{% url 'shop:product_list' %}";
+        }
+    }, 1000);
+</script>
 {% endblock %}

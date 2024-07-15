@@ -5,27 +5,37 @@
 {% endblock %}
 {% block content %}
 
-<div class="container">
+<div class="container mt-5">
     <div class="row">
-        <div class="col-lg-6">
-            <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}" class="img-fluid" alt="{{ product.name }}">
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'img/no_image.png' %}{% endif %}" class="card-img-top img-fluid rounded" alt="{{ product.name }}">
+            </div>
         </div>
-        <div class="col-lg-6">
-            <h1>{{ product.name }}</h1>
-            <h2 class="text-muted">{{ product.category }}</h2>
-            <p class="lead">${{ product.price }}</p>
-            <form action="{% url 'cart:cart_add' product.id %}" method="post">
-                {{ cart_product_form }}
-                {% csrf_token %}
-                <button type="submit" class="btn btn-primary">Añadir al carro</button>
-            </form>
+        <div class="col-lg-6 mb-4">
+            <div class="card shadow-sm p-4 h-100">
+                <div class="card-body">
+                    <h1 class="card-title">{{ product.name }}</h1>
+                    <h2 class="card-subtitle mb-2 text-muted">{{ product.category }}</h2>
+                    <p class="card-text lead">${{ product.price }}</p>
+                    <form action="{% url 'cart:cart_add' product.id %}" method="post" class="d-flex align-items-center mt-4">
+                        {{ cart_product_form }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-primary ms-2">Añadir al carro</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="row mt-4">
         <div class="col-lg-12">
-            <h3>Descripción del Producto</h3>
-            <p>{{ product.description|linebreaks }}</p>
+            <div class="card shadow-sm p-4">
+                <div class="card-body">
+                    <h3 class="card-title">Descripción del Producto</h3>
+                    <p class="card-text">{{ product.description|linebreaks }}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
